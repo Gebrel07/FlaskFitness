@@ -1,0 +1,20 @@
+.login-card {
+    width: 95%;
+    margin: auto;
+    margin-top: 50%;
+    background-color: white;
+}
+
+.clear-link {
+    text-decoration: none;
+    color: black;
+}
+
+.clear-link:hover {
+    color: blue;
+}
+
+
+body {
+    background-color: darkgray
+}

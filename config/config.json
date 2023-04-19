@@ -1,7 +1,0 @@
-{
-    "SECRET_KEY": "test-secret-key",
-    "SESSION_COOKIE_HTTPONLY": true,
-    "SQLALCHEMY_DATABASE_URI": "sqlite:////home/gabriel/Documents/flaskfitness/instance/flask_db.db",
-    "SQLALCHEMY_ECHO": false,
-    "SQLALCHEMY_TRACK_MODIFICATIONS": false
-}

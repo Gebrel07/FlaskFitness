@@ -1,0 +1,33 @@
+{% macro flash_messages() -%}
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for cat, msg in messages %}
+                <div class="alert {{cat}} alert-dismissible fade show" role="alert">
+                    {{msg}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+{%- endmacro %}
+
+{% macro render_form_field(form_field, render_label=True) -%}
+        {% if render_label %}
+            {{ form_field.label(class='form-crontrol-label') }}
+        {% endif %}
+        {{ render_field_with_errors(form_field) }}
+{%- endmacro %}
+
+{% macro render_field_with_errors(form_field) -%}
+    {% if form_field.errors %}
+        {{ form_field(class='form-control is-invalid') }}
+        <div class="invalid-feedback">
+            {% for err in form_field.errors %}
+                {{err}}
+            {% endfor %}
+        </div>
+    {% else %}
+        {{ form_field(class='form-control') }}
+    {% endif %}
+{%- endmacro %}
+
