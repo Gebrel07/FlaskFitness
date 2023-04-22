@@ -8,19 +8,20 @@ class User(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), unique=True, nullable=False)
-    password = db.Column(db.String(100), nullable=False)
+    password = db.Column(db.String(255), nullable=False)
+    email = db.Column(db.String(255), unique=True, nullable=False)
 
-    sex = db.Column(db.Integer, nullable=False) # M:1, F:2 
-    age = db.Column(db.Integer, nullable=False)
-    height = db.Column(db.Float, nullable=False)
-    weight = db.Column(db.Float, nullable=False)
+    sex = db.Column(db.Integer) # M:1, F:2 
+    age = db.Column(db.Integer)
+    height = db.Column(db.Float)
+    weight = db.Column(db.Float)
 
-    daily_calorie_goal = db.Column(db.Float, nullable=False)
+    daily_calorie_goal = db.Column(db.Float)
     
     # macro nutrients
-    daily_carb_goal = db.Column(db.Float, nullable=False)
-    daily_protein_goal = db.Column(db.Float, nullable=False)
-    daily_fat_goal = db.Column(db.Float, nullable=False)
+    daily_carb_goal = db.Column(db.Float)
+    daily_protein_goal = db.Column(db.Float)
+    daily_fat_goal = db.Column(db.Float)
 
     def __repr__(self) -> str:
         return f"{self.id} - {self.username}"
@@ -29,18 +30,20 @@ class User(db.Model, UserMixin):
     def create_user(
         self,
         username: str,
-        password: str
+        password: str,
+        email: str
     ):
         pwd_hash = bcrypt.generate_password_hash(password=password)
 
         user = self(
             username=username,
-            password=pwd_hash
+            password=pwd_hash.decode(),
+            email=email
         )
 
         db.session.add(user)
         db.session.commit()
-        return None
+        return user
     
     @classmethod
     def validate_login(
