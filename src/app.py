@@ -1,4 +1,5 @@
 import json
+import os
 
 from flask import Flask
 
@@ -11,7 +12,10 @@ def create_app():
 
     app.config.from_file(filename='../configs/config.json', load=json.load)
 
-    app.template_folder = app.config.get('TEMPLATE_FOLDER')
+    app.template_folder = os.path.join(
+        app.root_path,
+        app.config.get('TEMPLATE_FOLDER')
+    )
     app.static_folder = app.config.get('STATIC_FOLDER')
 
     login_manager.init_app(app)
