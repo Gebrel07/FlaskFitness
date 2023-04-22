@@ -1,8 +1,29 @@
-.login-card {
+
+body {
+    background-color: darkgray
+}
+
+form fieldset {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+form button {
+    margin-top: 10px;
+}
+
+form a {
+    margin-top: 10px;
+}
+
+.main-card {
     width: 95%;
     margin: auto;
     margin-top: 50%;
     background-color: white;
+    border-radius: 5px;
+    padding: 20px;
 }
 
 .clear-link {
@@ -12,9 +33,4 @@
 
 .clear-link:hover {
     color: blue;
-}
-
-
-body {
-    background-color: darkgray
 }
