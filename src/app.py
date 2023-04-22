@@ -4,7 +4,12 @@ import os
 from flask import Flask
 
 from ._route_refs import register_all_blueprints
-from .extensions import bcrypt, db, login_manager
+from .extensions import bcrypt, db, login_manager, migrate
+
+# TODO: create reset password page
+# TODO: create search, add and edit food pages
+# TODO: create track calories page (add, edit and remove items from daily cal number)
+# TODO: create dashboard for home page (show current status of daily goals, use chart js)
 
 
 def create_app():
@@ -23,6 +28,8 @@ def create_app():
 
     from src import _model_refs
     db.init_app(app)
+
+    migrate.init_app(app, db)
 
     register_all_blueprints(app=app)
 
