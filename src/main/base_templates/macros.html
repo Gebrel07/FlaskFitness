@@ -11,7 +11,7 @@
     {% endwith %}
 {%- endmacro %}
 
-{% macro render_form_field(form_field, render_label=True) -%}
+{% macro render_form_field(form_field, render_label=False) -%}
         {% if render_label %}
             {{ form_field.label(class='form-crontrol-label') }}
         {% endif %}
