@@ -8,7 +8,7 @@ home = Blueprint(
     template_folder='templates'
 )
 
-@home.route(rule='/signup', methods=['GET', 'POST'])
+@home.route(rule='/', methods=['GET', 'POST'])
 @login_required
 def homepage():
     return render_template('home/home.html')
