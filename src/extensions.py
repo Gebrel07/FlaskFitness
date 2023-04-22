@@ -9,6 +9,6 @@ login_manager = LoginManager()
 
 @login_manager.user_loader
 def load_user(user_id):
-    from main.user.user import User
+    from src.main.user.user import User
     return User.query.get(user_id)
 
