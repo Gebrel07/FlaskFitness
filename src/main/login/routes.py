@@ -1,5 +1,6 @@
 from flask import Blueprint, abort, flash, redirect, render_template, url_for
-from flask_login import current_user, login_user
+from flask_login import current_user, login_user, logout_user
+from markupsafe import Markup
 
 from src.extensions import db
 
@@ -35,7 +36,7 @@ def login_page():
 
             login_user(user=user, remember=form.remember.data)
 
-            flash(message=f'Welcome, {user.username}', category='alert-success')
+            flash(message=Markup(f'Welcome, {user.username} &#128513;'), category='alert-success')
             return redirect(url_for(endpoint='home.homepage'))
         else:
             flash(message='Username or Password are invalid', category='alert-danger')
