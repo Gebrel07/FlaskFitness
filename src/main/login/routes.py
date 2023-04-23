@@ -78,3 +78,8 @@ def confirm_email(user_id, token):
     else:
         abort(404)
 
+@login.route(rule='/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('login.login_page'))
+
