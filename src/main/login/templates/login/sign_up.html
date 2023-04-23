@@ -4,19 +4,21 @@
 
 {% from 'macros.html' import render_form_field %}
 
-<div class="main-card">
-    <form method="post">
-        {{form.csrf_token}}
-        <legend>Sign Up</legend>
-        <fieldset>
-            {{ render_form_field(form.email) }}
-            {{ render_form_field(form.username) }}
-            {{ render_form_field(form.password) }}
-            {{ render_form_field(form.confirm_password) }}
-        </fieldset>
-        <button type="submit" class="btn btn-success w-100">Submit</button>
-        <a href="{{ url_for('login.login_page') }}" class="btn btn-danger w-100">Cancel</a>
-    </form>
+<div class="login-container">
+    <div class="basic-card">
+        <form method="post">
+            {{form.csrf_token}}
+            <legend class="text-center mb-4">Sign Up</legend>
+            <fieldset>
+                {{ render_form_field(form.email) }}
+                {{ render_form_field(form.username) }}
+                {{ render_form_field(form.password) }}
+                {{ render_form_field(form.confirm_password) }}
+            </fieldset>
+            <button type="submit" class="btn btn-success w-100">Submit</button>
+            <a href="{{ url_for('login.login_page') }}" class="btn btn-danger w-100">Cancel</a>
+        </form>
+    </div>
 </div>
 
 {% endblock %}

@@ -3,25 +3,28 @@
 {% from 'macros.html' import render_form_field %}
 
 {% block body %}
-<div class="main-card rounded p-4">
-    <form method="post">
-        {{form.csrf_token}}
-        <legend class="text-center mb-4">
-            <img src="" alt="App logo">
-        </legend>
-        <fieldset>
-            {{render_form_field(form.username, render_label=False)}}
-            {{render_form_field(form.password, render_label=False)}}
-            <div>
-                <input class="form-check-input" type="checkbox" id="check">
-                <label class="form-check-label" for="check">Remember me</label>
+<div class="login-container">
+    <div class="basic-card rounded p-4">
+        <form method="post">
+            {{form.csrf_token}}
+            <legend class="text-center mb-4">
+                <img src="" alt="App logo">
+            </legend>
+            <fieldset>
+                {{render_form_field(form.username, render_label=False)}}
+                {{render_form_field(form.password, render_label=False)}}
+                <div>
+                    <input class="form-check-input" type="checkbox" id="check">
+                    <label class="form-check-label" for="check">Remember me</label>
+                </div>
+            </fieldset>
+            <button type="submit" class="btn btn-primary w-100">Log in</button>
+            <div class="text-center mt-3">
+                <p><a href="" class="clear-link">Forgot password?</a></p>
+                <p><a href="{{ url_for('login.signup') }}" class="clear-link">Sign up</a></p>
             </div>
-        </fieldset>
-        <button type="submit" class="btn btn-primary w-100">Login</button>
-        <div class="text-center mt-3">
-            <p><a href="" class="clear-link">Forgot password?</a></p>
-            <p><a href="{{ url_for('login.signup') }}" class="clear-link">Sign up</a></p>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 {% endblock %}
+

@@ -1,0 +1,38 @@
+<nav class="navbar sticky-top navbar-light bg-light">
+    <div class="container">
+
+        <a class="nav-link nav-item" href="{{ url_for('home.homepage') }}">
+            <span class="material-symbols-outlined align-middle">home</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMoreOptions">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMoreOptions">
+            <hr>
+            <ul class="navbar-nav me-auto my-2 mb-lg-0">
+                <!-- settings -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown">
+                        <span class="material-symbols-outlined align-middle">settings</span>
+                        Settings
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Change Password</a></li>
+                    </ul>
+                </li>
+                <hr>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login.logout') }}">
+                        <span class="material-symbols-outlined align-middle">logout</span>
+                        Log out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

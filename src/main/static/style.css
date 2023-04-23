@@ -1,6 +1,11 @@
-
+/* global */
 body {
-    background-color: darkgray
+    background-color: darkgray;
+    font-size: clamp(15px, 2vw, 30px);
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-size: clamp(15px, 2vw, 30px);
 }
 
 form fieldset {
@@ -9,23 +14,12 @@ form fieldset {
     row-gap: 10px;
 }
 
-form button {
+form button, a {
     margin-top: 10px;
 }
 
-form a {
-    margin-top: 10px;
-}
 
-.main-card {
-    width: 95%;
-    margin: auto;
-    margin-top: 50%;
-    background-color: white;
-    border-radius: 5px;
-    padding: 20px;
-}
-
+/* links */
 .clear-link {
     text-decoration: none;
     color: black;
@@ -33,4 +27,36 @@ form a {
 
 .clear-link:hover {
     color: blue;
+}
+
+/* material symbols */
+/* class provided by google icons */
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48;
+        font-size: clamp(35px, 3vw, 50px) !important; /* added by me */
+}
+
+/* containers */
+.login-container {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* cards */
+.basic-card {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
 }

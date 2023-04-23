@@ -1,8 +1,130 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<div class="home-container">
+    <div class="p-2 bg-white rounded">
+        <h5 class="text-center">Calories</h5>
+        <div class="p-4 d-flex justify-content-between align-items-center">
+            <div class="w-50">
+                <canvas id="calChart"></canvas>
+            </div>
+            <div>
+                <span>Goal: 20008</span> <br>
+                <span>Calories: 1000</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="p-2 bg-white rounded">
+        <h5 class="text-center">Protein</h5>
+        <div class="p-4 d-flex justify-content-between align-items-center">
+            <div class="w-50">
+                <canvas id="proteinChart"></canvas>
+            </div>
+            <div>
+                <span>Goal: 20008</span> <br>
+                <span>Calories: 1000</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="p-2 bg-white rounded">
+        <h5 class="text-center">Fat</h5>
+        <div class="p-4 d-flex justify-content-between align-items-center">
+            <div class="w-50">
+                <canvas id="fatChart"></canvas>
+            </div>
+            <div>
+                <span>Goal: 20008</span> <br>
+                <span>Calories: 1000</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="p-2 bg-white rounded">
+        <h5 class="text-center">Carbs</h5>
+        <div class="p-4 d-flex justify-content-between align-items-center">
+            <div class="w-50">
+                <canvas id="carbChart"></canvas>
+            </div>
+            <div>
+                <span>Goal: 20008</span> <br>
+                <span>Calories: 1000</span>
+            </div>
+        </div>
+    </div>
+</div>
 
-<h1>Welcome to the homepage</h1>
+
+
+<script>
+    const calChart = document.getElementById('calChart');
+    const proteinChart = document.getElementById('proteinChart');
+    const fatChart = document.getElementById('fatChart');
+    const carbChart = document.getElementById('carbChart');
+
+    Chart.register(ChartDataLabels)
+    Chart.defaults.set(
+        'plugins.datalabels',
+        {
+            color: 'grey',
+            font: {size: '15%'}
+        }
+    )
+
+
+    new Chart(calChart, {
+        type: 'doughnut',
+        data: {
+            labels: ['Calories', 'Remaining'],
+            datasets: [{
+                data: [60, 40],
+                borderWidth: 0,
+                backgroundColor: ['rgb(54, 162, 235)', 'lightgrey'],
+            }]
+        },
+        options: {plugins: {legend: {display: false}}}
+    });
+
+    new Chart(proteinChart, {
+        type: 'doughnut',
+        data: {
+            labels: ['Calories', 'Remaining'],
+            datasets: [{
+                data: [60, 40],
+                borderWidth: 0,
+                backgroundColor: ['rgb(54, 162, 235)', 'lightgrey'],
+            }]
+        },
+        options: {plugins: {legend: {display: false}}},
+    });
+
+    new Chart(fatChart, {
+        type: 'doughnut',
+        data: {
+            labels: ['Calories', 'Remaining'],
+            datasets: [{
+                data: [60, 40],
+                borderWidth: 0,
+                backgroundColor: ['rgb(54, 162, 235)', 'lightgrey'],
+            }]
+        },
+        options: {plugins: {legend: {display: false}}},
+    });
+
+    new Chart(carbChart, {
+        type: 'doughnut',
+        data: {
+            labels: ['Calories', 'Remaining'],
+            datasets: [{
+                data: [60, 40],
+                borderWidth: 0,
+                backgroundColor: ['rgb(54, 162, 235)', 'lightgrey'],
+            }]
+        },
+        options: {plugins: {legend: {display: false}}},
+    });
+</script>
+
 
 {% endblock %}
-
