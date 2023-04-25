@@ -123,4 +123,32 @@ class User(db.Model, UserMixin):
         mail.send(message=msg)
         return None
 
+    @classmethod
+    def send_reset_pwd_email(self, user_id: int):
+        user: self = self.query.get(user_id)
+
+        token = User.generate_confirmation_token(user_email=user.email)
+
+        link = url_for(
+            'login.reset_password',
+            user_id=user_id,
+            token=token,
+            _external=True
+        )
+
+        email = Email()
+
+        body = email.render_message_body(
+            template=email.RESET_PASSWORD,
+            username=user.username,
+            reset_pwd_link=link
+        )
+
+        msg = Message(
+            subject='Flask Fitness reset password',
+            html=body,
+            recipients=[user.email]
+        )
+
+        mail.send(message=msg)
 

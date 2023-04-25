@@ -39,3 +39,13 @@ class SignupForm(FlaskForm):
 
         if email_query:
             raise ValidationError(message='This email is unavailable')
+
+
+class ResetPwdTokenForm(FlaskForm):
+    email = EmailField(validators=[DataRequired(), Email()], render_kw={'placeholder': 'Your Email'})
+
+
+class ResetPwdForm(FlaskForm):
+    new_password = PasswordField(validators=[DataRequired(), Length(7, 50)], render_kw={'placeholder': 'Your New Password'})
+    confirm_new_password = PasswordField(validators=[DataRequired(), EqualTo("new_password")], render_kw={'placeholder': 'Confirm Password'})
+
