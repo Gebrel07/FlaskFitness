@@ -5,18 +5,24 @@
 {% from 'macros.html' import render_form_field %}
 
 <div class="login-container">
-    <div class="basic-card">
+    <div class="basic-card bg-white bg-opacity-50">
         <form method="post">
             {{form.csrf_token}}
-            <legend class="text-center mb-4">Sign Up</legend>
-            <fieldset>
+            <legend class="text-center mb-4">
+                <img class="contain-img" src="{{ url_for('static', filename='logo.png') }}" alt="App logo" width="40%">
+                <p>Sign up</p>
+            </legend>
+            <fieldset class="fieldset-col">
                 {{ render_form_field(form.email) }}
                 {{ render_form_field(form.username) }}
                 {{ render_form_field(form.password) }}
                 {{ render_form_field(form.confirm_password) }}
             </fieldset>
-            <button type="submit" class="btn btn-success w-100">Submit</button>
-            <a href="{{ url_for('login.login_page') }}" class="btn btn-danger w-100">Cancel</a>
+            <div class="d-flex justify-content-between my-3">
+                <button class="btn btn-primary" type="submit">Submit</button>
+                <a href="{{ url_for('login.login_page') }}" class="btn btn-danger">Cancel</a>
+            </div>
+
         </form>
     </div>
 </div>

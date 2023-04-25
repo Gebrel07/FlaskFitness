@@ -1,33 +1,37 @@
 /* global */
 body {
-    background-color: darkgray;
-    font-size: clamp(15px, 2vw, 30px);
+    font-size: clamp(15px, 1vw, 30px);
+    height: 100vh;
 }
 
-h1,h2,h3,h4,h5,h6 {
-    font-size: clamp(15px, 2vw, 30px);
+.contain-img {
+    object-fit: contain;
 }
 
-form fieldset {
+
+/* forms */
+.fieldset-col {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
 }
 
-form button, a {
-    margin-top: 10px;
+
+/* login/signup */
+.login-container .form-control {
+    background-color: rgba(255, 255, 255, .5);
 }
 
 
-/* links */
-.clear-link {
-    text-decoration: none;
-    color: black;
+/* backgorunds */
+.bg-violet {
+    background-color: #DA1092;
 }
 
-.clear-link:hover {
-    color: blue;
+.bg-indigo {
+    background-color: #5B1092;
 }
+
 
 /* material symbols */
 /* class provided by google icons */
@@ -37,8 +41,9 @@ form button, a {
         'wght' 400,
         'GRAD' 0,
         'opsz' 48;
-        font-size: clamp(35px, 3vw, 50px) !important; /* added by me */
+    font-size: clamp(35px, 3vw, 50px) !important; /* added by me */
 }
+
 
 /* containers */
 .login-container {
@@ -48,11 +53,22 @@ form button, a {
     justify-content: center;
 }
 
+
 .home-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
+
+@media only screen and (min-width: 600px) {
+    /* for desktop */
+    .home-container {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+}
+
 
 /* cards */
 .basic-card {

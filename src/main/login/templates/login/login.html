@@ -4,13 +4,14 @@
 
 {% block body %}
 <div class="login-container">
-    <div class="basic-card rounded p-4">
+    <div class="basic-card bg-white bg-opacity-50 rounded p-4">
         <form method="post">
             {{form.csrf_token}}
             <legend class="text-center mb-4">
-                <img src="" alt="App logo">
+                <img class="contain-img" src="{{ url_for('static', filename='logo.png') }}" alt="App logo" width="40%"> <br>
+                Flask Fitness
             </legend>
-            <fieldset>
+            <fieldset class="text-muted fieldset-col">
                 {{render_form_field(form.username, render_label=False)}}
                 {{render_form_field(form.password, render_label=False)}}
                 <div>
