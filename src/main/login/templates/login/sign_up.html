@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'login_base.html' %}
 
 {% block body %}
 
@@ -8,11 +8,11 @@
     <div class="basic-card bg-white bg-opacity-50">
         <form method="post">
             {{form.csrf_token}}
-            <legend class="text-center mb-4">
+            <legend class="text-center mb-4 text-black">
                 <img class="contain-img" src="{{ url_for('static', filename='logo.png') }}" alt="App logo" width="40%">
                 <p>Sign up</p>
             </legend>
-            <fieldset class="fieldset-col">
+            <fieldset class="basic-fieldset">
                 {{ render_form_field(form.email) }}
                 {{ render_form_field(form.username) }}
                 {{ render_form_field(form.password) }}

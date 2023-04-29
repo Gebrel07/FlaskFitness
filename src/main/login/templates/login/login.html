@@ -1,31 +1,30 @@
-{% extends 'base.html' %}
+{% extends 'login_base.html' %}
 
 {% from 'macros.html' import render_form_field %}
 
 {% block body %}
-<div class="login-container">
-    <div class="basic-card bg-white bg-opacity-50 rounded p-4">
-        <form method="post">
-            {{form.csrf_token}}
-            <legend class="text-center mb-4">
-                <img class="contain-img" src="{{ url_for('static', filename='logo.png') }}" alt="App logo" width="40%"> <br>
-                Flask Fitness
-            </legend>
-            <fieldset class="text-muted fieldset-col">
-                {{render_form_field(form.username, render_label=False)}}
-                {{render_form_field(form.password, render_label=False)}}
-                <div>
-                    <input class="form-check-input" type="checkbox" id="check">
-                    <label class="form-check-label" for="check">Remember me</label>
-                </div>
-            </fieldset>
-            <button type="submit" class="btn btn-primary my-3 w-100 text-white">Log in</button>
-            <div class="text-center my-2">
-                <a class="text-muted text-decoration-none" href="{{ url_for('login.send_password_reset_token') }}">Forgot password?</a> <br> <br>
-                <a class="text-muted text-decoration-none" href="{{ url_for('login.signup') }}">Sign up</a>
+
+<div class="basic-card">
+    <form method="post">
+        {{form.csrf_token}}
+        <legend class="text-center mb-4 text-black">
+            <img class="contain-img" src="{{ url_for('static', filename='logo.png') }}" alt="App logo" width="40%"> <br>
+            Flask Fitness
+        </legend>
+        <fieldset class="basic-fieldset">
+            {{render_form_field(form.username, render_label=False)}}
+            {{render_form_field(form.password, render_label=False)}}
+            <div class="text-start">
+                <input class="form-check-input" type="checkbox" id="check">
+                <label class="form-check-label" for="check">Remember me</label>
             </div>
-        </form>
-    </div>
+        </fieldset>
+        <button type="submit" class="btn btn-primary my-3 w-100 text-white">Log in</button>
+        <div class="text-center my-2">
+            <a class="text-muted text-decoration-none" href="{{ url_for('login.send_password_reset_token') }}">Forgot password?</a> <br> <br>
+            <a class="text-muted text-decoration-none" href="{{ url_for('login.signup') }}">Sign up</a>
+        </div>
+    </form>
 </div>
 {% endblock %}
 

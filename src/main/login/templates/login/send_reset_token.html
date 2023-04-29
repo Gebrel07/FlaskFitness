@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'login_base.html' %}
 
 {% block body %}
 
@@ -8,11 +8,11 @@
     <div class="basic-card bg-white bg-opacity-50">
         <form method="post">
             {{form.csrf_token}}
-            <legend class="text-center mb-4">
-                <img class="contain-img" src="{{ url_for('static', filename='logo.png') }}" alt="App logo" width="40%">
+            <legend class="text-center mb-4 text-black">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="App logo" width="40%">
                 <p>Reset Password</p>
             </legend>
-            <fieldset class="fieldset-col">
+            <fieldset class="basic-fieldset">
                 {{ render_form_field(form.email) }}
             </fieldset>
             <div class="d-flex justify-content-between my-3">

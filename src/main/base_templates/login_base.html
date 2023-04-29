@@ -30,11 +30,9 @@
 <body>
     {% from 'macros.html' import flash_messages %}
 
-    {% include 'navbar.html' %}
-
     {{ flash_messages() }}
     
-    <div class="base-container">
+    <div class="login-container">
         {% block body %}
         {% endblock %}
     </div>

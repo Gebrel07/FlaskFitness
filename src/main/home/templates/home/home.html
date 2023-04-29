@@ -2,57 +2,58 @@
 
 {% block body %}
 <div class="home-container">
-    <div class="p-2 bg-white basic-card">
-        <h5 class="text-center">Calories</h5>
-        <div class="p-4 d-flex justify-content-between align-items-center">
-            <div class="w-50 me-3">
+    <div class="basic-card chart-card">
+        <h5>Calories</h5>
+        <div class="inner-card">
+            <div class="canvas-container">
                 <canvas id="calChart"></canvas>
             </div>
             <div>
-                <span>Goal: 20008</span> <br>
-                <span>Calories: 1000</span>
+                <span>Goal: 2000 cal</span> <br>
+                <span>Left: 1000 cal</span>
             </div>
         </div>
     </div>
-    
-    <div class="p-2 bg-white rounded">
-        <h5 class="text-center">Protein</h5>
-        <div class="p-4 d-flex justify-content-between align-items-center">
-            <div class="w-50">
+
+    <div class="basic-card chart-card">
+        <h5>Protein</h5>
+        <div class="inner-card">
+            <div class="canvas-container">
                 <canvas id="proteinChart"></canvas>
             </div>
             <div>
-                <span>Goal: 20008</span> <br>
-                <span>Calories: 1000</span>
+                <span>Goal: 100g</span> <br>
+                <span>Left: 50g</span>
             </div>
         </div>
     </div>
-    
-    <div class="p-2 bg-white rounded">
-        <h5 class="text-center">Fat</h5>
-        <div class="p-4 d-flex justify-content-between align-items-center">
-            <div class="w-50">
+
+    <div class="basic-card chart-card">
+        <h5>Fat</h5>
+        <div class="inner-card">
+            <div class="canvas-container">
                 <canvas id="fatChart"></canvas>
             </div>
             <div>
-                <span>Goal: 20008</span> <br>
-                <span>Calories: 1000</span>
+                <span>Goal: 100g</span> <br>
+                <span>Left: 50g</span>
             </div>
         </div>
     </div>
-    
-    <div class="p-2 bg-white rounded">
-        <h5 class="text-center">Carbs</h5>
-        <div class="p-4 d-flex justify-content-between align-items-center">
-            <div class="w-50">
+
+    <div class="basic-card chart-card">
+        <h5>Carbs</h5>
+        <div class="inner-card">
+            <div class="canvas-container">
                 <canvas id="carbChart"></canvas>
             </div>
             <div>
-                <span>Goal: 20008</span> <br>
-                <span>Calories: 1000</span>
+                <span>Goal: 100g</span> <br>
+                <span>Left: 50g</span>
             </div>
         </div>
     </div>
+
 </div>
 
 
@@ -63,13 +64,26 @@
     const fatChart = document.getElementById('fatChart');
     const carbChart = document.getElementById('carbChart');
 
+    // config datalabels plugin
     Chart.register(ChartDataLabels)
     Chart.defaults.set(
         'plugins.datalabels',
         {
-            color: 'grey',
-            font: {size: '15%'}
-        }
+            color: 'white',
+            font: {size: '15%', weight: 'bold'},
+            formatter: (value, ctx) => {
+                let sum = 0;
+                // get values from dataset
+                let dataArr = ctx.chart.data.datasets[0].data;
+                // sum all values
+                dataArr.map(data => {sum += data});
+                // return percentage of first value in dataset (current calories)
+                if (ctx.dataIndex == 0){
+                    return (value*100 / sum).toFixed(0) + "%";
+                } else return null
+                
+            },
+        },
     )
 
 
@@ -78,9 +92,9 @@
         data: {
             labels: ['Calories', 'Remaining'],
             datasets: [{
-                data: [60, 40],
+                data: [100, 900],
                 borderWidth: 0,
-                backgroundColor: ['rgb(54, 162, 235)', 'lightgrey'],
+                backgroundColor: ['#2C75FF', 'rgba(255, 255, 255, .2)']
             }]
         },
         options: {plugins: {legend: {display: false}}}
@@ -89,11 +103,11 @@
     new Chart(proteinChart, {
         type: 'doughnut',
         data: {
-            labels: ['Calories', 'Remaining'],
+            labels: ['Protein', 'Remaining'],
             datasets: [{
                 data: [60, 40],
                 borderWidth: 0,
-                backgroundColor: ['rgb(54, 162, 235)', 'lightgrey'],
+                backgroundColor: ['#FB607F', 'rgba(255, 255, 255, .2)']
             }]
         },
         options: {plugins: {legend: {display: false}}},
@@ -102,11 +116,11 @@
     new Chart(fatChart, {
         type: 'doughnut',
         data: {
-            labels: ['Calories', 'Remaining'],
+            labels: ['Fat', 'Remaining'],
             datasets: [{
                 data: [60, 40],
                 borderWidth: 0,
-                backgroundColor: ['rgb(54, 162, 235)', 'lightgrey'],
+                backgroundColor: ['#F8DE7E', 'rgba(255, 255, 255, .2)']
             }]
         },
         options: {plugins: {legend: {display: false}}},
@@ -115,11 +129,11 @@
     new Chart(carbChart, {
         type: 'doughnut',
         data: {
-            labels: ['Calories', 'Remaining'],
+            labels: ['Carbs', 'Remaining'],
             datasets: [{
                 data: [60, 40],
                 borderWidth: 0,
-                backgroundColor: ['rgb(54, 162, 235)', 'lightgrey'],
+                backgroundColor: ['#74C365', 'rgba(255, 255, 255, .2)']
             }]
         },
         options: {plugins: {legend: {display: false}}},

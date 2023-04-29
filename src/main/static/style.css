@@ -1,35 +1,8 @@
 /* global */
-body {
+html, body {
     font-size: clamp(15px, 1vw, 30px);
-    height: 100vh;
-}
-
-.contain-img {
-    object-fit: contain;
-}
-
-
-/* forms */
-.fieldset-col {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-}
-
-
-/* login/signup */
-.login-container .form-control {
-    background-color: rgba(255, 255, 255, .5);
-}
-
-
-/* backgorunds */
-.bg-violet {
-    background-color: #DA1092;
-}
-
-.bg-indigo {
-    background-color: #5B1092;
+    height: 100%;
+    overflow: auto;
 }
 
 
@@ -45,14 +18,50 @@ body {
 }
 
 
-/* containers */
-.login-container {
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* backgrounds */
+.bg-violet {
+    background-color: #DA1092;
 }
 
+.bg-indigo {
+    background-color: #5B1092;
+}
+
+
+/* containers */
+.base-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: fit-content;
+    min-height: 90%;
+    margin: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+    .base-container{
+        flex-direction: row;
+        align-items: start;
+        height: auto;
+        min-height: auto;
+    }
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: fit-content;
+    min-height: 90%;
+    margin: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+    .login-container{
+        flex-direction: row;
+        align-items: center;
+    }
+}
 
 .home-container {
     display: flex;
@@ -61,18 +70,59 @@ body {
 }
 
 @media only screen and (min-width: 600px) {
-    /* for desktop */
     .home-container {
-        display: flex;
         flex-direction: row;
-        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
 
 
 /* cards */
 .basic-card {
-    background-color: white;
-    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .5);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
     padding: 20px;
+    text-align: center;
+}
+
+
+/* charts */
+@media only screen and (min-width: 600px) {
+    .chart-card {
+        width: 35vw;
+    }
+}
+
+.canvas-container {
+    position: relative;
+    width: 50%;
+    min-width: fit-content;
+    max-width: 50%;
+    margin-right: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+    .canvas-container {
+        height: 35vh;
+    }
+}
+
+.inner-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* login */
+.basic-fieldset {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.basic-fieldset .form-control {
+    background-color: rgba(255, 255, 255, .5);
+    border: none;
 }
