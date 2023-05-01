@@ -32,18 +32,15 @@ html, body {
 .base-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: fit-content;
-    min-height: 90%;
+    justify-content: start;
     margin: 10px;
 }
 
 @media only screen and (min-width: 600px) {
     .base-container{
         flex-direction: row;
+        justify-content: center;
         align-items: start;
-        height: auto;
-        min-height: auto;
     }
 }
 
@@ -77,6 +74,20 @@ html, body {
     }
 }
 
+.basic-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+@media only screen and (min-width: 600px) {
+    .basic-container {
+        flex-direction: row;
+        justify-content: center;
+        min-width: 60vw;
+    }
+}
+
 
 /* cards */
 .basic-card {
@@ -105,7 +116,7 @@ html, body {
 
 @media only screen and (min-width: 600px) {
     .canvas-container {
-        height: 35vh;
+        width: 35vw;
     }
 }
 
@@ -125,4 +136,54 @@ html, body {
 .basic-fieldset .form-control {
     background-color: rgba(255, 255, 255, .5);
     border: none;
+}
+
+/* edit profile table */
+.basic-table {
+    background-color: rgba(255, 255, 255, .5);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 20px;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+/* align text on left and right */
+.basic-table tr td:nth-child(1) {
+    text-align: start;
+}
+
+.basic-table tr td:nth-child(2) {
+    text-align: end;
+    word-break: break-all; /* break words when user data is too long */
+}
+
+/* keep only inner borders */
+.basic-table {
+    border-collapse: collapse;
+    border-style: hidden;
+}
+
+.basic-table td {
+    border-top: 1px solid white;
+    padding: 10px;
+}
+
+/* navbar */
+.nav-container {
+    width: 100%;
+    margin: 0 5%;
+}
+
+.main-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.navbar-nav hr {
+    color: white;
+    width: 100%;
+    margin: 5px;
 }

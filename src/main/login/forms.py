@@ -47,5 +47,5 @@ class ResetPwdTokenForm(FlaskForm):
 
 class ResetPwdForm(FlaskForm):
     new_password = PasswordField(validators=[DataRequired(), Length(7, 50)], render_kw={'placeholder': 'Your New Password'})
-    confirm_new_password = PasswordField(validators=[DataRequired(), EqualTo("new_password")], render_kw={'placeholder': 'Confirm Password'})
+    confirm_new_password = PasswordField(validators=[DataRequired(), EqualTo("new_password", 'Must be equal to Your New Password')], render_kw={'placeholder': 'Confirm Password'})
 

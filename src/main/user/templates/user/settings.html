@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="basic-container">
+    <table class="basic-table">
+        <tbody>
+            <td colspan="2" class="text-muted">My Account</td>
+            <tr><td>Username</td> <td><a class="text-body text-decoration-none" href="{{ url_for('user.edit_username') }}">{{ current_user.username }}</a></td></tr>
+            <tr><td>Password</td> <td><a class="text-body text-decoration-none" href="{{ url_for('user.edit_password') }}">Edit</a></td></tr>
+            <tr><td>Email</td><td><a class="text-body text-decoration-none" href="{{ url_for('user.edit_email') }}">{{ current_user.email }}</a></td></tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

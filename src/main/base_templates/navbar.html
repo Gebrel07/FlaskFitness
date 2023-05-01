@@ -1,34 +1,33 @@
-<nav class="navbar navbar-dark bg-dark bg-opacity-75 sticky-top">
-    <div class="container">
-
-        <ul class="navbar-nav">
+<nav class="navbar navbar-expand navbar-dark bg-dark bg-opacity-75 sticky-top">
+    <div class="nav-container">
+        <ul class="navbar-nav main-nav">
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('home.homepage') }}">
                     <span class="material-symbols-outlined">home</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <span class="material-symbols-outlined">menu_book</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#collapse" role="button">
+                    <span class="material-symbols-outlined">menu</span>
+                </a>
+            </li>
         </ul>
 
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMoreOptions">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navMoreOptions">
-            <hr>
-            <ul class="navbar-nav me-auto my-2 mb-lg-0">
-                <!-- settings -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown">
+        <div class="collapse" id="collapse">
+            <ul class="navbar-nav flex-column align-items-start">
+                <hr>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('user.settings') }}">
                         <span class="material-symbols-outlined align-middle">settings</span>
                         Settings
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-dark bg-dark bg-opacity-10">
-                        <li><a class="dropdown-item" href="#">Edit Profile</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Change Password</a></li>
-                    </ul>
                 </li>
                 <hr>
                 <li class="nav-item">

@@ -1,0 +1,8 @@
+{% extends 'edit_base.html' %}
+
+{% from 'macros.html' import render_form_field %}
+
+{% block fieldset %}
+{{render_form_field(form.username)}}
+{% endblock %}
+

@@ -1,0 +1,9 @@
+{% extends 'edit_base.html' %}
+
+{% from 'macros.html' import render_form_field %}
+
+{% block fieldset %}
+{{render_form_field(form.email)}}
+{{render_form_field(form.confirm_email)}}
+{% endblock %}
+
